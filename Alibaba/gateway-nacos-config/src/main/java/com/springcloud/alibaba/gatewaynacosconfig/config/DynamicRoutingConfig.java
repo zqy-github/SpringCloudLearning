@@ -54,9 +54,9 @@ public class DynamicRoutingConfig implements ApplicationEventPublisherAware {
 
     @Bean
     public void refreshRouting() throws NacosException {
+        String serverAddr = "localhost";
         Properties properties = new Properties();
-        properties.put(PropertyKeyConst.SERVER_ADDR, "192.168.44.129:8848");
-        properties.put(PropertyKeyConst.NAMESPACE, "8282c713-da90-486a-8438-2a5a212ef44f");
+        properties.put(PropertyKeyConst.SERVER_ADDR, serverAddr);
         ConfigService configService = NacosFactory.createConfigService(properties);
         configService.addListener(DATA_ID, Group, new Listener() {
             @Override
